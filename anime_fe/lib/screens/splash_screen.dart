@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 
+import 'login_page.dart';
+
 class SplashScreen extends StatefulWidget {
 
   @override
@@ -20,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
             () => Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (BuildContext context) => HomePage()),
+              builder: (BuildContext context) => LoginPage()),
         ));
   }
   Widget build(BuildContext context) {
