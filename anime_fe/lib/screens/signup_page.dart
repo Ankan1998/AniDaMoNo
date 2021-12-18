@@ -100,20 +100,40 @@ class _SignupPageState extends State<SignupPage> {
                             SizedBox(height: 25,),
                             _buildPassword(),
                             SizedBox(height: 35,),
-                            CustomTextButton(
-                              height:48,
-                              width: 72,
-                              borderRadius: 20.0,
-                              borderColor: Colors.grey[500],
-                              onPressed: () async {
-                                if (!_formkey.currentState.validate()) {
-                                  return;
-                                }
-                                _formkey.currentState.save();
-                              },
-                              title: "Sign-Up",
-                              textStyle: TextStyles.button1,
-                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CustomTextButton(
+                                  height:48,
+                                  width: 72,
+                                  bgColor: Colors.green[800],
+                                  borderRadius: 20.0,
+                                  borderColor: Colors.grey[500],
+                                  onPressed: () async {
+                                    if (!_formkey.currentState.validate()) {
+                                      return;
+                                    }
+                                    _formkey.currentState.save();
+                                  },
+                                  title: "Sign-Up",
+                                  textStyle: TextStyles.button1,
+                                ),
+                                CustomTextButton(
+                                    height:48,
+                                    width: 48,
+                                    bgColor: Colors.black45,
+                                    borderRadius: 20.0,
+                                    borderColor: Colors.grey[500],
+                                  onPressed: (){
+                                    Navigator.of(context).pop();
+                                  },
+                                  title: "Go Back",
+                                  textStyle: TextStyles.button1
+                                )
+                              ],
+                            )
+
                           ],
                         )
                     )

@@ -42,7 +42,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = isDisabled
         ? Colors.grey[300]
-        : Colors.green[800];
+        : bgColor;
     return GestureDetector(
       child: Container(
         width: buttonWidth,

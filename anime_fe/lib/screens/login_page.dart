@@ -101,6 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                         CustomTextButton(
                           height:48,
                           width: 72,
+                          bgColor: Colors.green[800],
                           borderRadius: 20.0,
                           borderColor: Colors.grey[500],
                           onPressed: () async {
