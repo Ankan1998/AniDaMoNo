@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:anime_fe/components/app_utils.dart';
 import 'package:anime_fe/custom_widget/custom_form.dart';
 import 'package:anime_fe/custom_widget/custom_text_button.dart';
+import 'package:anime_fe/screens/signup_page.dart';
 import 'package:anime_fe/themes/app_text_style.dart';
 import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/cupertino.dart';
@@ -48,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
         return null;
       },
       labelText: "Password",
-      obscureText: false,
+      obscureText: true,
       hintText: "Enter your Password",
       onSave: (value){
         _password = value;
@@ -110,6 +111,20 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           title: "Sign-in",
                           textStyle: TextStyles.button1,
+                        ),
+                        SizedBox(height: 20,),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignupPage()));
+                          },
+                          child: Text(
+                            "Don't have Account? Signup",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 18.0,
+                              decoration: TextDecoration.underline
+                            ),
+                          ),
                         )
                       ],
                     )
