@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:anime_fe/components/app_utils.dart';
 import 'package:anime_fe/custom_widget/custom_form.dart';
+import 'package:anime_fe/custom_widget/custom_text_button.dart';
 import 'package:anime_fe/themes/app_text_style.dart';
+import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -69,9 +71,24 @@ class _LoginPageState extends State<LoginPage> {
                     child:Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
+                        AvatarView(
+
+                          radius: 60,
+                          borderWidth: 2,
+                          borderColor: Colors.grey[400],
+                          avatarType: AvatarType.CIRCLE,
+                          backgroundColor: Colors.grey[700],
+                          imagePath: "images/kurama.png",
+                          placeHolder: Container(
+                            child: Icon(Icons.person, size: 60,),
+                          ),
+                          errorWidget: Container(
+                            child: Icon(Icons.error, size: 60,),
+                          ),
+                        ),
                         Container(
                           child: Text(
-                            "Login",
+                            "Konnichiwa",
                             style: TextStyles.largeTitle
                           ),
                         ),
@@ -79,17 +96,20 @@ class _LoginPageState extends State<LoginPage> {
                         _buildEmail(),
                         SizedBox(height: 25,),
                         _buildPassword(),
-                        SizedBox(height: 25,),
-                        ElevatedButton(
-                            onPressed: () async {
-                              if (!_formkey.currentState.validate()) {
-                                return;
-                              }
-                              _formkey.currentState.save();
-                            },
-                            child: Text(
-                              "Login"
-                            )
+                        SizedBox(height: 35,),
+                        CustomTextButton(
+                          height:48,
+                          width: 72,
+                          borderRadius: 20.0,
+                          borderColor: Colors.grey[500],
+                          onPressed: () async {
+                            if (!_formkey.currentState.validate()) {
+                              return;
+                            }
+                            _formkey.currentState.save();
+                          },
+                          title: "Sign-in",
+                          textStyle: TextStyles.button1,
                         )
                       ],
                     )
