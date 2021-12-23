@@ -1,4 +1,4 @@
-import 'package:anime_fe/screens/splash_screen.dart';
+import 'package:anime_fe/modules/login/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -89,7 +89,7 @@ class _SignupPageState extends State<SignupPage> {
                           children: [
                             Container(
                               child: Text(
-                                  "Come Abroad",
+                                  "Join Us",
                                   style: TextStyles.largeTitle
                               ),
                             ),

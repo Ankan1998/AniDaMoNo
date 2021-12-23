@@ -1,4 +1,3 @@
-import 'package:anime_fe/screens/HomePage.dart';
 import 'package:avatar_view/avatar_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
