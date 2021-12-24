@@ -1,48 +1,18 @@
 class LoginModel {
-  User user;
-  String token;
+  String email;
+  String password;
 
-  LoginModel({this.user, this.token});
+  LoginModel({this.email, this.password});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
-    token = json['token'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.user != null) {
-      data['user'] = this.user.toJson();
-    }
-    data['token'] = this.token;
-    return data;
-  }
-}
-
-class User {
-  String sId;
-  String name;
-  String email;
-  String createdAt;
-  String updatedAt;
-
-  User({this.sId, this.name, this.email, this.createdAt, this.updatedAt});
-
-  User.fromJson(Map<String, dynamic> json) {
-    sId = json['_id'];
-    name = json['name'];
     email = json['email'];
-    createdAt = json['createdAt'];
-    updatedAt = json['updatedAt'];
+    password = json['password'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
     data['email'] = this.email;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
+    data['password'] = this.password;
     return data;
   }
 }
