@@ -2,9 +2,13 @@ import 'dart:convert';
 import 'package:anime_fe/components/app_utils.dart';
 import 'package:anime_fe/custom_widget/custom_form.dart';
 import 'package:anime_fe/custom_widget/custom_text_button.dart';
+import 'package:anime_fe/modules/home/ui/HomePage.dart';
+import 'package:anime_fe/modules/signup/bloc/sign_up_bloc.dart';
+import 'package:anime_fe/modules/signup/model/signup_model.dart';
 import 'package:anime_fe/themes/app_text_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key key}) : super(key: key);
@@ -20,6 +24,7 @@ class _SignupPageState extends State<SignupPage> {
   String _name = '';
   String _email = '';
   String _password = '';
+  SignUpModel signUpModel = SignUpModel();
 
   Widget _buildName() {
     return CustomForm(
@@ -72,6 +77,21 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
+  Widget _buildLoginError(String msg) {
+    return Column(
+      children: [
+        SizedBox(height: 10),
+        Text(
+          msg,
+          style: TextStyle(
+              color: Colors.deepOrange,
+              fontSize: 18
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -92,6 +112,27 @@ class _SignupPageState extends State<SignupPage> {
                                   "Join Us",
                                   style: TextStyles.largeTitle
                               ),
+                            ),
+                            BlocConsumer<SignUpBloc, SignUpState>(
+                                listener: (context, state) {
+                                  // TODO: implement listener
+                                },
+                                builder: (context, state) {
+                                  if (state is SignUpSuccess) {
+                                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                                      Navigator.of(context).pop();
+                                      Navigator.of(context).pushReplacement(
+                                          MaterialPageRoute(
+                                              builder: (context) => HomePage()));
+
+                                    });
+                                  } else if(state is SignUpFailure){
+                                    return _buildLoginError("Recheck Credential");
+                                  } else if(state is NetworkIssue){
+                                    return _buildLoginError("No Internet Connection");
+                                  }
+                                  return Container();
+                                }
                             ),
                             SizedBox(height:30),
                             _buildName(),
@@ -115,6 +156,11 @@ class _SignupPageState extends State<SignupPage> {
                                       return;
                                     }
                                     _formkey.currentState.save();
+                                    signUpModel.name = _name;
+                                    signUpModel.email = _email;
+                                    signUpModel.password = _password;
+                                    context.read<SignUpBloc>().add(StartSignUpEvent(signUpModel));
+
                                   },
                                   title: "Sign-Up",
                                   textStyle: TextStyles.button1,
