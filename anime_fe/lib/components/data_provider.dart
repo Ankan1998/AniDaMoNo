@@ -19,4 +19,22 @@ class DataProvider {
       return e;
     }
   }
+
+  Future<dynamic> requestSignupEndpoint(String name, String email, String password) async {
+    try{
+      Response response = await dio.post(
+          baseUrl+'/users/signup',
+          data: {
+            "name":name,
+            "email":email,
+            "password":password
+          }
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
 }
