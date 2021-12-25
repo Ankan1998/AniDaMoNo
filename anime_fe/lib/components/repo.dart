@@ -8,6 +8,9 @@ class Repository{
   Future<int> verifyLogin(LoginModel loginData) async {
     var result = await _dataProvider.requestLoginEndpoint(loginData.email,loginData.password);
     if(result.runtimeType == DioError){
+      if(result.type == DioErrorType.response){
+        return 400;
+      }
       return 503;
     }
     return result.statusCode;
