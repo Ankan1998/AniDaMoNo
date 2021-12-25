@@ -3,6 +3,8 @@ import 'package:anime_fe/modules/login/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'modules/signup/bloc/sign_up_bloc.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -15,6 +17,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (context) => LoginBloc()
+        ),
+        BlocProvider(
+            create: (context) => SignUpBloc()
         )
       ],
       child: MaterialApp(
