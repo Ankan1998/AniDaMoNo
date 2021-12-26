@@ -37,4 +37,17 @@ class DataProvider {
     }
   }
 
+  Future<dynamic> requestProfileEndpoint(String token) async {
+    dio.options.headers["Authorization"] = "Bearer ${token}";
+    try{
+      Response response = await dio.get(
+          baseUrl+'/users/me',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
 }
