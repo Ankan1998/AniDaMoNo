@@ -1,5 +1,8 @@
 const express = require('express')
-const UserRouter = require('./router/user')
+const UserRouter = require('./router/rest/user')
+const {graphqlHTTP} = require('express-graphql')
+const graphQlSchema = require('./router/graphql/schemas/merged_schemas')
+const graphQlResolvers = require('./router/graphql/resolvers/main_resolver')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -7,6 +10,14 @@ const port = process.env.PORT || 3000
 app.use(express.json())
 
 app.use(UserRouter)
+app.use(
+    '/graphql',
+    graphqlHTTP({
+      schema: graphQlSchema,
+      rootValue: graphQlResolvers,
+      graphiql: true
+    })
+  );
 
 app.listen(port,()=>{
     console.log('Server listening at Port: ' + port)
