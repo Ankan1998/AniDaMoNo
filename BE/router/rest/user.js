@@ -1,7 +1,7 @@
 const express = require('express')
-require('../mongoose')
-const User = require('../model/user_model')
-const auth = require('../middleware/middleware')
+require('../../mongoose')
+const User = require('../../model/user_model')
+const auth = require('../../middleware/middleware')
 
 const router = new express.Router()
 
@@ -101,6 +101,34 @@ router.delete('/users/delete', auth, async (req, res) => {
     } catch(e) {
         res.status(400).send()
     }
+})
+
+//upload image url
+router.post('/upload/url',auth, async (req,res)=>{
+    try{
+        
+        req.user.dp = req.body.dp
+        console.log(req.user.dp)
+        req.user.save()
+        res.send(req.user.dp)
+    } catch(e){
+        res.staus(400).send()
+    }
+    
+})
+
+//download image url
+router.get('/download/url',auth, async (req,res)=>{
+    try{
+        const dp = req.user.dp
+        if (!dp){
+            return res.status(404).send()
+        }
+        res.send(req.user.dp)
+    } catch(e){
+        res.staus(400).send()
+    }
+    
 })
 
 module.exports = router;

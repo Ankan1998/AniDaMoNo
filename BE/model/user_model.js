@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
         type: String
     },
     dp:{
-        type: Buffer
+        type: String
     },
     tokens: [{
         token: {
