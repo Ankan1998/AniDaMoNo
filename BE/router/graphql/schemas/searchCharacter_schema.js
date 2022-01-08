@@ -1,5 +1,5 @@
 const { buildSchema } = require('graphql');
-const characterSearch = buildSchema(
+const characterSearch = 
     `
     type Webp {
         image_url: String
@@ -24,12 +24,8 @@ const characterSearch = buildSchema(
         nicknames: [String]
         images: Images
       }
-
-      type Query {
-        characters:[Character]
-      }
     `
-)
+
 
 module.exports = characterSearch;
 
