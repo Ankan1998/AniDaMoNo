@@ -1,3 +1,4 @@
+const { buildSchema, print } = require('graphql');
 const { mergeTypeDefs } = require('@graphql-tools/merge')
 const characterSearch = require('./searchCharacter_schema');
 
@@ -12,5 +13,7 @@ schema {
 `;
 
 const types = [characterSearch, rootTypes];
+const typeDefs = mergeTypeDefs(types)
+const schemaMerged = buildSchema(print(typeDefs));
 
-module.exports = mergeTypeDefs(types)
+module.exports = schemaMerged
