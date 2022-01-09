@@ -1,4 +1,4 @@
-const characterResolver = require('./searchCharacter_resolver')
+const characterResolver = require('./character/searchCharacter_resolver')
 
 const RootResolver = {
     ...characterResolver,

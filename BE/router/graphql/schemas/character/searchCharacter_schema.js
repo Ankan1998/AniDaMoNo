@@ -1,4 +1,3 @@
-const { buildSchema } = require('graphql');
 const characterSearch = 
     `
     type Webp {
