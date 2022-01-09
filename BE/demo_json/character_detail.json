@@ -1,0 +1,53 @@
+{
+    "characterDetail": {
+      "mal_id": 131443,
+      "url": "https://myanimelist.net/character/131443/David__Levinsonn",
+      "images": {
+        "jpg": {
+          "image_url": "https://cdn.myanimelist.net/images/characters/14/287136.jpg"
+        },
+        "webp": {
+          "image_url": "https://cdn.myanimelist.net/images/characters/14/287136.webp",
+          "small_image_url": "https://cdn.myanimelist.net/images/characters/14/287136t.webp"
+        }
+      },
+      "name": "David Levinsonn",
+      "nicknames": [],
+      "favorites": 0,
+      "about": "Dr. David Levinsonn is a Professor of Marks University School of Medicine (Dept. of Neurosurgery) who appears on a talk show in Session 23: \"Brain Scratch\".",
+      "appeareance": [
+        {
+          "role": "Main",
+          "anime_id": 20,
+          "anime_title": "naruto"
+        },
+        {
+          "role": "Main",
+          "anime_id": 20,
+          "anime_title": "naruto"
+        },
+        {
+          "role": "Main",
+          "anime_id": 20,
+          "anime_title": "naruto"
+        }
+      ],
+      "voice_actor": [
+        {
+          "language": "en",
+          "actor_id": 4,
+          "name": "Giero"
+        },
+        {
+          "language": "en",
+          "actor_id": 4,
+          "name": "Giero"
+        },
+        {
+          "language": "en",
+          "actor_id": 4,
+          "name": "Giero"
+        }
+      ]
+    }
+  }
