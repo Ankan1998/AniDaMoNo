@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const characterResolver = {
+const characterSearch = {
     characters: async()=>{
         const url = "https://api.jikan.moe/v4/characters?q=levi"
         return await axios.get(url).then((response)=>response.data).then((data)=>{
@@ -9,4 +9,4 @@ const characterResolver = {
     }
 }
 
-module.exports = characterResolver;
+module.exports = characterSearch;
