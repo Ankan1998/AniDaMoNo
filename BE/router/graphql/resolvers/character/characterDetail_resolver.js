@@ -1,12 +1,11 @@
 const axios = require('axios')
-const { response } = require('express')
 
 const characterDetail = {
-    characterById: async () => {
+    characterById: async ({id}) => {
         const endpoints = [
-            'https://api.jikan.moe/v4/characters/17',
-            'https://api.jikan.moe/v4/characters/17/anime',
-            'https://api.jikan.moe/v4/characters/17/voices'
+            `https://api.jikan.moe/v4/characters/${id}`,
+            `https://api.jikan.moe/v4/characters/${id}/anime`,
+            `https://api.jikan.moe/v4/characters/${id}/voices`
         ]
         const response_map = await Promise.all(endpoints.map((endpoint) => axios.get(endpoint))).then(
             axios.spread((character, anime, voice) => {
@@ -37,7 +36,7 @@ const characterDetail = {
             })
             
         })
-        
+
         response_map.character["appeareance"] = appearence_list
         response_map.character["voice_actor"] = voice_actor_list
         return response_map.character;
