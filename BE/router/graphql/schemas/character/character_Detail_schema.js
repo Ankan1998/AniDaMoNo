@@ -12,20 +12,6 @@ const characterDetail =
         anime_title: String
     }
     
-    type Webp {
-        image_url: String
-        small_image_url: String
-    }
-    
-    type Jpg {
-        image_url: String
-    }
-    
-    type Images {
-        webp: Webp
-        jpg: Jpg
-    }
-    
     type CharacterDetail {
         mal_id: Int
         url: String
@@ -39,5 +25,5 @@ const characterDetail =
     }
     
     `
-
+// Images type is present in search character and as all the schema are merged, so there is no need to make duplicate schema
 module.exports = characterDetail
