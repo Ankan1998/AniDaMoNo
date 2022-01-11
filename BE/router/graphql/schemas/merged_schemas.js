@@ -5,8 +5,8 @@ const characterDetail = require('./character/character_Detail_schema.js')
 
 const rootTypes = `
 type RootQuery {
-    characters: [Character]
-    characterById: CharacterDetail
+    characters(name:String!): [Character]
+    characterById(id:Int!): CharacterDetail
 }
 
 schema {
