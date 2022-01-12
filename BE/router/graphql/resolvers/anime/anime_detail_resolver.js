@@ -20,6 +20,7 @@ const AnimeDetail = {
         })
         const characters_list = []
         const recommendations_list = []
+        
         response_map.characters.forEach(element => {
             characters_list.push({
                 "character_id":element.character.mal_id,
@@ -28,13 +29,19 @@ const AnimeDetail = {
             })
             
         })
-        response_map.recommendations.forEach(element => {
+        var recommendation_count = 0  
+        response_map.recommendations.every(element => {
+            recommendation_count = recommendation_count+1
+            if(recommendation_count>=10){
+                return false
+            }
+
             recommendations_list.push({
                 "anime_id":element.entry.mal_id,
                 "title": element.entry.title,
                 "votes":element.votes
             })
-            
+            return true
         })
 
         response_map.anime["anime_characters"] = characters_list
