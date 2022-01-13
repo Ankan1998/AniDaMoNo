@@ -1,6 +1,7 @@
 const express = require('express')
 const UserRouter = require('./router/rest/user')
 const AnimeRouter = require('./router/rest/anime')
+const CharacterRouter = require('./router/rest/character')
 const {graphqlHTTP} = require('express-graphql')
 const graphQlResolvers = require('./router/graphql/resolvers/main_resolver')
 const graphQlSchema = require('./router/graphql/schemas/merged_schemas');
@@ -12,6 +13,7 @@ app.use(express.json())
 
 app.use(UserRouter)
 app.use(AnimeRouter)
+app.use(CharacterRouter)
 
 app.use(
     '/graphql',
