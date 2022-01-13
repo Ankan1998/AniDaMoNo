@@ -1,5 +1,6 @@
 const express = require('express')
 const UserRouter = require('./router/rest/user')
+const AnimeRouter = require('./router/rest/anime')
 const {graphqlHTTP} = require('express-graphql')
 const graphQlResolvers = require('./router/graphql/resolvers/main_resolver')
 const graphQlSchema = require('./router/graphql/schemas/merged_schemas');
@@ -10,6 +11,7 @@ const port = process.env.PORT || 3000
 app.use(express.json())
 
 app.use(UserRouter)
+app.use(AnimeRouter)
 
 app.use(
     '/graphql',
