@@ -60,7 +60,7 @@ class DataProvider {
     }
   }
 
-  Future<dynamic> requestUpdateUserEndpoint(String name, String password) async {
+  Future<dynamic> updateUserEndpoint(String name, String password) async {
     Dio dio = getDio();
     try{
       Response response = await dio.post(
@@ -103,7 +103,7 @@ class DataProvider {
     }
   }
 
-  Future<dynamic> requestDeleteEndpoint() async {
+  Future<dynamic> requestDeleteUserEndpoint() async {
     Dio dio = getDio();
     try{
       Response response = await dio.delete(
@@ -144,5 +144,77 @@ class DataProvider {
       return e;
     }
   }
+
+  //ANIME
+  Future<dynamic> saveAnimeEndpoint(String id) async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.post(
+          baseUrl+'/animes/save/${id}',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+  Future<dynamic> requestAnimeEndpoint() async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.get(
+        baseUrl+'/animes',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+  Future<dynamic> updateAnimeEndpoint(String id, bool watched, int waitlist) async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.post(
+          baseUrl+'/animes/update/${id}',
+          data: {
+            "watched":watched,
+            "waitlist":waitlist
+          }
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+  Future<dynamic> requestDeleteAnimeEndpoint(String id) async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.delete(
+        baseUrl+'/animes/delete/${id}',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+  Future<dynamic> requestDeleteAllAnimeEndpoint() async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.delete(
+        baseUrl+'/animes/deleteAll',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+
 
 }
