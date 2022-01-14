@@ -71,6 +71,11 @@ UserSchema.statics.matchCred = async function (emailID, password) {
 
 }
 
+UserSchema.virtual('anime_virtuals',{
+    ref: 'Anime',
+    localField: '_id',
+    foreignField: 'owner'
+})
 
 UserSchema.pre('save', async function (next) {
     if (this.isModified('password')) {
