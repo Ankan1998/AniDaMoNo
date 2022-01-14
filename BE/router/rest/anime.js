@@ -31,6 +31,33 @@ router.get('/animes', auth, async (req, res) => {
     }
 })
 
+// Update Anime
+router.patch('/animes/update/:id', auth, async (req, res) => {
+    const changes = Object.keys(req.body) // Convert json fields to array 
+    const allowedChanges = ['watched', 'waitlist']
+    const isValidChange = changes.every((change) => {
+        return allowedChanges.includes(change)
+    })
+    if (!isValidChange) {
+        return res.status(400).send()
+    }
+    try {
+        const anime = await Anime.findOne({_id:req.params.id,owner:req.user._id})
+        if (!anime) {
+            return res.status(404).send()
+        }
+        changes.forEach((change) => {
+            anime[change] = req.body[change]
+        })
+
+        await anime.save()
+        res.send(anime)
+
+    } catch (e) {
+        res.status(400).send()
+    }
+})
+
 // Delete an anime
 router.delete('/animes/delete/:id', auth,async (req, res) => {
     try {
@@ -44,7 +71,7 @@ router.delete('/animes/delete/:id', auth,async (req, res) => {
     }
 })
 
-// Delete all Task
+// Delete all Anime
 router.delete('/animes/deleteAll', auth, async (req, res) => {
     try {
         await Anime.deleteMany({owner:req.user._id})
