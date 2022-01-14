@@ -215,6 +215,58 @@ class DataProvider {
     }
   }
 
+  //Character
 
+  Future<dynamic> saveCharacterEndpoint(String id) async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.post(
+        baseUrl+'/characters/fav/${id}',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+  Future<dynamic> requestCharacterEndpoint() async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.get(
+        baseUrl+'/characters',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+  Future<dynamic> requestDeleteCharacterEndpoint(String id) async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.delete(
+        baseUrl+'/characters/delete/${id}',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
+
+  Future<dynamic> requestDeleteAllCharacterEndpoint() async {
+    Dio dio = getDio();
+    try{
+      Response response = await dio.delete(
+        baseUrl+'/characters/deleteAll',
+      );
+      return response;
+
+    } catch(e) {
+      return e;
+    }
+  }
 
 }
