@@ -77,6 +77,12 @@ UserSchema.virtual('anime_virtuals',{
     foreignField: 'owner'
 })
 
+UserSchema.virtual('character_virtuals',{
+    ref: 'Character',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
 UserSchema.pre('save', async function (next) {
     if (this.isModified('password')) {
         this.password = await bcrypt.hash(this.password, 8)
