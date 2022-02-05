@@ -21,38 +21,32 @@ class _MyProfileState extends State<MyProfile> {
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
-            SizedBox(
-              height: 10,
-            ),
             Center(
                 child: Stack(
               children: [
                 CircleAvatar(
-                  radius: MediaQuery.of(context).size.height * 0.15,
+                  radius: MediaQuery.of(context).size.height * 0.125,
                   backgroundImage:
                       NetworkImage('https://picsum.photos/200/300'),
                   backgroundColor: Colors.transparent,
                 ),
                 Positioned(
-                  top: MediaQuery.of(context).size.height * 0.23,
-                  left: MediaQuery.of(context).size.height * 0.23,
+                  top: MediaQuery.of(context).size.height * 0.2,
+                  left: MediaQuery.of(context).size.height * 0.2,
                   child: GestureDetector(
-                    onTap: () {
-
-                    },
+                    onTap: () {},
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: EdgeInsets.all(2),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(50),
                           border:
                               Border.all(width: 3, color: Colors.grey[600])),
                       child: Icon(
                         Icons.edit,
-                        size: 35,
-
+                        size: 30,
                       ),
                     ),
                   ),
@@ -60,45 +54,74 @@ class _MyProfileState extends State<MyProfile> {
               ],
             )),
             SizedBox(
-              height: 40,
+              height: 20,
             ),
-            Card(
-              child: ListTile(
-                title: Text(
-                  "Ankan Sharma",
+            Container(
+              height: MediaQuery.of(context).size.height * 0.4,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                          "Name",
+                        ),
+                        subtitle: Text("Ankan Sharma"),
+                        trailing: Icon(Icons.edit),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                          "E-mail",
+                        ),
+                        subtitle: Text("xyz@xyz.com"),
+                        trailing: Icon(Icons.edit),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                          "Created At",
+                        ),
+                        subtitle: Text("23 July, 2021"),
+                      ),
+                    ),
+                    Card(
+                      child: ListTile(
+                        title: Text(
+                          "Updated At",
+                        ),
+                        subtitle: Text("23 July, 2021"),
+                      ),
+                    ),
+                  ],
                 ),
-                trailing: Icon(Icons.edit),
               ),
             ),
-            Card(
-              child: ListTile(
-                title: Text(
-                  "xyz@xyz.com",
-                ),
-                trailing: Icon(Icons.edit),
-              ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.15,),
             CustomTextButton(
               height: 48,
               buttonWidth: MediaQuery.of(context).size.width * 0.9,
               bgColor: Color(0xFF146356),
               borderRadius: 20.0,
               borderColor: Color(0xFF146356),
-              onPressed: () async {
-              },
+              onPressed: () async {},
               title: "Logout",
               textStyle: TextStyles.button1,
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             CustomTextButton(
               height: 48,
               buttonWidth: MediaQuery.of(context).size.width * 0.9,
               bgColor: Color(0xFF146356),
               borderRadius: 20.0,
               borderColor: Color(0xFF146356),
-              onPressed: () async {
-              },
+              onPressed: () async {},
               title: "Delete My Account",
               textStyle: TextStyles.button1,
             )
