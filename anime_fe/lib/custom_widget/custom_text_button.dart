@@ -46,6 +46,7 @@ class CustomTextButton extends StatelessWidget {
     return GestureDetector(
       child: Container(
         width: buttonWidth,
+        height: height,
         padding: padding != null
             ? padding
             : EdgeInsets.symmetric(
@@ -54,7 +55,7 @@ class CustomTextButton extends StatelessWidget {
           color: color,
           border: Border.all(
               color: borderColor,
-              width:borderWidth
+              width:borderWidth,
           ),
           borderRadius: customBorder == null
               ? (borderRadius == null
