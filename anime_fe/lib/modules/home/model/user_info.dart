@@ -3,7 +3,7 @@ class UserInfo{
   static UserInfo _instance = UserInfo._();
   UserInfo._();
 
-  String authToken='';
+  String authToken=null;
 
   factory UserInfo() {
     return _instance;
