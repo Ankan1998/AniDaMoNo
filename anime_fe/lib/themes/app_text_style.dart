@@ -12,6 +12,13 @@ class TextStyles{
     fontSize: 42.0
   );
 
+  static TextStyle pageTitle = TextStyle(
+      fontFamily: GoogleFonts.raleway().fontFamily,
+      fontWeight: FontWeight.w400,
+      fontSize: 30.0,
+      color: Colors.black
+  );
+
   static TextStyle button1 = TextStyle(
       fontFamily: GoogleFonts.roboto().fontFamily,
       fontWeight: FontWeight.w200,
