@@ -1,27 +1,9 @@
 class SearchCharacterModel {
-  Data data;
-
-  SearchCharacterModel({this.data});
-
-  SearchCharacterModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.data != null) {
-      data['data'] = this.data.toJson();
-    }
-    return data;
-  }
-}
-
-class Data {
   List<Characters> characters;
 
-  Data({this.characters});
+  SearchCharacterModel({this.characters});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  SearchCharacterModel.fromJson(Map<String, dynamic> json) {
     if (json['characters'] != null) {
       characters = <Characters>[];
       json['characters'].forEach((v) {
