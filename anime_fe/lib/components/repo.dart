@@ -44,6 +44,11 @@ class Repository{
     return result.statusCode;
   }
 
+  Future<int> getProfile() async {
+    var result = await _dataProvider.requestProfileEndpoint();
+    return result;
+  }
+
   // GraphQL
 
   Future<QueryResult> searchAnime(String animeName) async {
