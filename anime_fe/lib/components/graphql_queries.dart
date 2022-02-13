@@ -18,7 +18,7 @@ class GraphqlQuery {
     """;
   }
 
-  static String getCharcter(String character_name) {
+  static String getCharacter(String character_name) {
     return """
     query {
       characters(name:"$character_name"){
