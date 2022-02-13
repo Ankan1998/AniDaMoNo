@@ -1,27 +1,9 @@
 class SearchAnimeModel {
-  Data data;
-
-  SearchAnimeModel({this.data});
-
-  SearchAnimeModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.data != null) {
-      data['data'] = this.data.toJson();
-    }
-    return data;
-  }
-}
-
-class Data {
   List<Animes> animes;
 
-  Data({this.animes});
+  SearchAnimeModel({this.animes});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  SearchAnimeModel.fromJson(Map<String, dynamic> json) {
     if (json['animes'] != null) {
       animes = <Animes>[];
       json['animes'].forEach((v) {
@@ -48,7 +30,12 @@ class Animes {
   Images images;
 
   Animes(
-      {this.malId, this.titleEnglish, this.type, this.episodes, this.score, this.images});
+      {this.malId,
+        this.titleEnglish,
+        this.type,
+        this.episodes,
+        this.score,
+        this.images});
 
   Animes.fromJson(Map<String, dynamic> json) {
     malId = json['mal_id'];
