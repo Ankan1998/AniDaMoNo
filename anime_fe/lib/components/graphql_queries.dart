@@ -3,6 +3,7 @@ class GraphqlQuery {
     return """
     query {
       animes(name:"$anime_name"){
+        mal_id
         title_english
         type
         episodes

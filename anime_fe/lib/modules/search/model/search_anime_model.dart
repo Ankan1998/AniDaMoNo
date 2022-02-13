@@ -40,6 +40,7 @@ class Data {
 }
 
 class Animes {
+  int malId;
   String titleEnglish;
   String type;
   int episodes;
@@ -47,9 +48,10 @@ class Animes {
   Images images;
 
   Animes(
-      {this.titleEnglish, this.type, this.episodes, this.score, this.images});
+      {this.malId, this.titleEnglish, this.type, this.episodes, this.score, this.images});
 
   Animes.fromJson(Map<String, dynamic> json) {
+    malId = json['mal_id'];
     titleEnglish = json['title_english'];
     type = json['type'];
     episodes = json['episodes'];
@@ -60,6 +62,7 @@ class Animes {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['mal_id'] = this.malId;
     data['title_english'] = this.titleEnglish;
     data['type'] = this.type;
     data['episodes'] = this.episodes;
